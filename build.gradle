@@ -1,0 +1,35 @@
+buildscript {
+    /* 전역변수 선언 */
+    ext {
+        springBootversion = '2.1.7.RELEASE'
+    }
+    /* 각종 의존성들을 어떤 원격저장소에 받을지를 정함 */
+    repositories{
+        mavenCentral()
+        jcenter() // 라이브러리를 업로드를 간단하게 개선
+    }
+    /* 프로젝트 개발에 필요한 의존성들을 선언 하는 곳 */
+    dependencies{
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootversion}")
+        //버전을 직접 지정하지 않고 ${}를 사용하면 라이브러리들의 버전 충돌문제를 해결 할 수 있다.
+    }
+}
+
+/* 자바 스프링부트를 사용하기위한 필수 필러그인 */
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management' // 스프링 부트 의존성 관리 플러그인
+
+group 'myeonghun.example'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
