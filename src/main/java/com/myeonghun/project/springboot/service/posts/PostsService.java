@@ -2,6 +2,7 @@ package com.myeonghun.project.springboot.service.posts;
 
 import com.myeonghun.project.springboot.domain.posts.Posts;
 import com.myeonghun.project.springboot.domain.posts.PostsRepository;
+import com.myeonghun.project.springboot.web.dto.PostsResponseDto;
 import com.myeonghun.project.springboot.web.dto.PostsSaveRequestDto;
 import com.myeonghun.project.springboot.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
@@ -28,5 +29,12 @@ public class PostsService {
 
         posts.update(requestDto.getTitle(), requestDto.getContent());
         return id;
+    }
+
+    public PostsResponseDto findById(Long id) {
+        Posts entity = postsRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당게시글이 없습니다. id ="+ id));
+
+        return new PostsResponseDto(entity);
     }
 }
