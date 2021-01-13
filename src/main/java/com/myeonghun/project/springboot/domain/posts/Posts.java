@@ -1,4 +1,5 @@
 package com.myeonghun.project.springboot.domain.posts;
+import com.myeonghun.project.springboot.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +13,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-public class Posts {
+public class Posts extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //pk의 생성 규칙을 나타냄
@@ -40,7 +41,6 @@ public class Posts {
     public void update(String title, String content){
         this.title = title;
         this.content = content;
-
     }
 
 
