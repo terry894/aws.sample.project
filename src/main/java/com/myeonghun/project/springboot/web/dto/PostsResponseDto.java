@@ -16,5 +16,6 @@ public class PostsResponseDto {
         this.content = Entity.getContent();
         this.title = Entity.getTitle();
         this.author = Entity.getAuthor();
+
     }
 }
