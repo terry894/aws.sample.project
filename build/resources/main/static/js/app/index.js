@@ -7,7 +7,7 @@ var main = {
             _this.update();
         })
 
-        $('#btn-delete').on('click',function(){
+        $('#btn-delete').on('click',function(){ㅇ
             _this.delete();
         })
 
